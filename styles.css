@@ -81,7 +81,7 @@ h1, h2, h3 {
   margin: 0 0 0.6em;
 }
 h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
-.wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 
 /* ---------- Header: slim bar, logo left, menu right ---------- */
 /* The header and hero share ONE drawing. script.js measures header + hero
@@ -205,28 +205,30 @@ h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
 }
 
 /* ---------- Instagram mock-up ---------- */
+/* About us: wider container, Instagram gets the larger column */
+.about-grid { grid-template-columns: 1fr 1.5fr; gap: 56px; }
 .insta {
   background: var(--card);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 1px 0 rgba(0,0,0,.05), 0 12px 30px -18px rgba(0,0,0,.35);
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.05), 0 16px 40px -20px rgba(0,0,0,.35);
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
-.insta-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-.insta-avatar { width: 48px; height: 48px; border-radius: 50%; padding: 2px; background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); }
-.insta-head strong { display: block; font-size: .95rem; }
-.insta-head span { font-size: .8rem; color: var(--muted); }
+.insta-head { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.insta-avatar { width: 68px; height: 68px; border-radius: 50%; padding: 3px; background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); }
+.insta-head strong { display: block; font-size: 1.15rem; }
+.insta-head span { font-size: .9rem; color: var(--muted); }
 .insta-follow {
   margin-left: auto; background: #0095f6; color: #fff; text-decoration: none;
-  font-size: .85rem; font-weight: 600; padding: 7px 16px; border-radius: 8px;
+  font-size: .95rem; font-weight: 600; padding: 10px 22px; border-radius: 10px;
 }
-.insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .tile {
   aspect-ratio: 1;
   display: flex; align-items: flex-end;
-  padding: 8px;
-  color: #fff; font-size: .78rem; font-weight: 600;
-  border-radius: 4px;
+  padding: 12px;
+  color: #fff; font-size: .92rem; font-weight: 600; line-height: 1.25;
+  border-radius: 6px;
   position: relative; overflow: hidden;
 }
 .tile span { position: relative; text-shadow: 0 1px 2px rgba(0,0,0,.4); }
@@ -236,7 +238,10 @@ h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
 .t4 { background: #8c6d5a; }
 .t5 { background: var(--ink-2); }
 .t6 { background: url("assets/front-drawing.png") center/180% no-repeat, var(--ink); }
-.insta-note { margin: 12px 0 0; font-size: .78rem; color: var(--muted); text-align: center; }
+.t7 { background: #a65a3a; }
+.t8 { background: #5f6873; }
+.t9 { background: url("assets/front-drawing.png") 30% 40%/260% no-repeat, var(--ink-2); }
+.insta-note { margin: 16px 0 0; font-size: .85rem; color: var(--muted); text-align: center; }
 
 /* ---------- What's on ---------- */
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
@@ -369,6 +374,13 @@ h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
   .event-date .m { margin: 0; }
   .block { padding: 56px 0; }
   .hero { min-height: 420px; padding: 48px 16px; }
+  .insta { padding: 16px; }
+  .insta-avatar { width: 52px; height: 52px; }
+  .insta-head { gap: 12px; }
+  .insta-head > div { min-width: 0; }
+  .insta-head strong { font-size: .9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .insta-follow { padding: 7px 12px; font-size: .85rem; flex-shrink: 0; }
+  .tile { padding: 8px; font-size: .78rem; }
   .details { grid-template-columns: 1fr; gap: 2px; }
   .details dd { margin-bottom: 12px; }
 }
