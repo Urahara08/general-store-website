@@ -101,9 +101,12 @@ h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
     var(--art-shade),
     url("assets/front-drawing.png") var(--art-x) var(--art-y-header) / var(--art-size) no-repeat,
     var(--ink);
-  transition: box-shadow .2s ease;
+  transition: transform .3s ease, box-shadow .2s ease;
 }
 .site-header.is-scrolled { box-shadow: 0 6px 18px -8px rgba(0,0,0,.45); }
+/* slides away when scrolling down, back when scrolling up (script.js) */
+.site-header.is-hidden { transform: translateY(calc(-100% - env(safe-area-inset-top, 0px))); box-shadow: none; }
+@media (prefers-reduced-motion: reduce) { .site-header { transition: none; } }
 .header-inner {
   max-width: 1200px;
   margin: 0 auto;

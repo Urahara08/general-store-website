@@ -170,9 +170,31 @@ window.addEventListener("resize", syncArt);
 window.addEventListener("load", syncArt);
 if (document.fonts) document.fonts.ready.then(syncArt);
 
+/* ---------- Header hides on scroll down, returns on scroll up ---------- */
+let lastY = window.scrollY;
+let ticking = false;
+function onScroll() {
+  const y = Math.max(0, window.scrollY);
+  const delta = y - lastY;
+  const menuOpen = nav.classList.contains("open");
+  const nearTop = y < header.offsetHeight;
+
+  header.classList.toggle("is-scrolled", y > 4);
+  if (nearTop || menuOpen || header.contains(document.activeElement)) {
+    header.classList.remove("is-hidden");          // always show at the top / with menu open
+  } else if (delta > 6) {
+    header.classList.add("is-hidden");             // scrolling down
+  } else if (delta < -6) {
+    header.classList.remove("is-hidden");          // scrolling up
+  }
+  if (Math.abs(delta) > 6 || nearTop) lastY = y;   // ignore tiny jitters
+  ticking = false;
+}
 window.addEventListener("scroll", () => {
-  header.classList.toggle("is-scrolled", window.scrollY > 4);
+  if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
 }, { passive: true });
+// keyboard users: bring the header back when tabbing into it
+header.addEventListener("focusin", () => header.classList.remove("is-hidden"));
 
 /* ---------- Footer year ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();
