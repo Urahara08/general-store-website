@@ -1,0 +1,5 @@
+# Original photos are ~140MB each – keep them out of git
+*.tiff
+# Local preview settings (machine-specific)
+.claude/
+.DS_Store

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-scheme="logo" data-font="classic">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>General Store · Winchester</title>
+  <meta name="description" content="General Store – a little café on The Square, Winchester. Coffee, cakes, live music and good company.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Fredoka:wght@500;600&family=Nunito:wght@400;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="logo-link" aria-label="General Store – back to top">
+        <img src="assets/logo.png" alt="General Store logo" class="logo">
+      </a>
+
+      <nav class="site-nav" aria-label="Main">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <ul id="nav-list">
+          <li><a href="#about">About us</a></li>
+          <li><a href="#whats-on">What's on</a></li>
+          <li><a href="#contact">Contact us</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO: shopfront drawing with intro in front ============ -->
+    <section class="hero" aria-label="Welcome – drawing of the General Store shopfront">
+      <div class="hero-content">
+        <p class="eyebrow">On The Square, Winchester</p>
+        <h1>Good coffee, homemade cakes &amp; a warm welcome.</h1>
+        <p class="lede">A little café with a big striped awning. Pop in for a flat white, stay for the live music.</p>
+        <a href="#whats-on" class="btn btn--light">See what's on</a>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT US ============ -->
+    <section id="about" class="block block--paper">
+      <div class="wrap two-col">
+        <div>
+          <h2>About us</h2>
+          <p>General Store sits at 30–31 The Square, right in the heart of Winchester. We're a small, friendly café serving proper coffee, hot chocolates, cakes, toasties and jacket potatoes by day, and wine, cocktails and charcuterie boards by night.</p>
+          <p>Grab a table under the awning, catch up with friends inside, or join us for one of our evenings of live music.</p>
+          <ul class="ticks">
+            <li>Coffee &amp; hot chocolates</li>
+            <li>Homemade cakes &amp; bakes</li>
+            <li>Toasties &amp; jacket potatoes</li>
+            <li>Wine, cocktails &amp; sharing boards</li>
+          </ul>
+        </div>
+
+        <!-- Instagram mock-up (to be replaced with a live feed later) -->
+        <div class="insta" aria-label="Instagram feed preview">
+          <div class="insta-head">
+            <img src="assets/logo.png" alt="" class="insta-avatar">
+            <div>
+              <strong>generalstore_winchester</strong>
+              <span>General Store · Café</span>
+            </div>
+            <a class="insta-follow" href="https://www.instagram.com/generalstore_winchester/" target="_blank" rel="noopener">Follow</a>
+          </div>
+          <div class="insta-grid">
+            <div class="tile t1"><span>Flat white Friday</span></div>
+            <div class="tile t2"><span>Fresh bakes</span></div>
+            <div class="tile t3"><span>Live jazz</span></div>
+            <div class="tile t4"><span>Mulled wine is back</span></div>
+            <div class="tile t5"><span>Charcuterie boards</span></div>
+            <div class="tile t6"><span>Under the awning</span></div>
+          </div>
+          <p class="insta-note">Mock-up · live Instagram feed to be connected</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT'S ON ============ -->
+    <section id="whats-on" class="block block--ink">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>What's on <span class="month">November</span></h2>
+          <div class="filter" role="group" aria-label="Show events">
+            <button data-filter="upcoming" class="is-active">Upcoming</button>
+            <button data-filter="all">All</button>
+          </div>
+        </div>
+        <ol class="events" id="events"></ol>
+        <p class="events-foot">Questions about an event? Email <a href="mailto:events@thegeneralstorewinchester.com">events@thegeneralstorewinchester.com</a></p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="block block--paper">
+      <div class="wrap two-col">
+        <div>
+          <h2>Contact us</h2>
+          <p>Booking a table, asking about an event or just saying hello? Drop us a message and we'll get back to you.</p>
+          <dl class="details">
+            <dt>Find us</dt><dd>30–31 The Square<br>Winchester SO23 9EX</dd>
+            <dt>Email</dt><dd><a href="mailto:events@thegeneralstorewinchester.com">events@thegeneralstorewinchester.com</a></dd>
+            <dt>Instagram</dt><dd><a href="https://www.instagram.com/generalstore_winchester/" target="_blank" rel="noopener">@generalstore_winchester</a></dd>
+            <dt>Opening hours</dt><dd class="tbc">To be confirmed</dd>
+          </dl>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+          <small class="err" data-for="name">Please tell us your name.</small>
+
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+          <small class="err" data-for="phone">Please enter a valid phone number.</small>
+
+          <label for="query">Your query</label>
+          <textarea id="query" name="query" rows="5" required></textarea>
+          <small class="err" data-for="query">Please let us know how we can help.</small>
+
+          <button type="submit" class="btn">Send message</button>
+          <p class="form-success" id="form-success" hidden>Thank you! We'll be in touch soon. <em>(Mock-up: nothing has been sent.)</em></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <img src="assets/logo.png" alt="General Store" class="footer-logo">
+      <p>30–31 The Square, Winchester SO23 9EX</p>
+      <p>&copy; <span id="year"></span> General Store</p>
+    </div>
+  </footer>
+
+  <!-- ============ MOCK-UP OPTIONS (remove before launch) ============ -->
+  <button class="opts-toggle" id="opts-toggle" aria-expanded="false" aria-controls="opts">Design options</button>
+  <aside class="opts" id="opts" hidden>
+    <h3>Mock-up options</h3>
+    <fieldset>
+      <legend>Colours</legend>
+      <label><input type="radio" name="scheme" value="logo" checked> Logo – charcoal &amp; white</label>
+      <label><input type="radio" name="scheme" value="awning"> Charcoal + awning navy</label>
+      <label><input type="radio" name="scheme" value="autumn"> Charcoal + warm terracotta</label>
+    </fieldset>
+    <fieldset>
+      <legend>Font</legend>
+      <label><input type="radio" name="font" value="classic" checked> Classic – matches logo</label>
+      <label><input type="radio" name="font" value="cute"> Cute – soft &amp; rounded</label>
+      <label><input type="radio" name="font" value="quaint"> Quaint – vintage serif</label>
+    </fieldset>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
