@@ -1,5 +1,5 @@
 /* =========================================================
-   General Store – mock-up behaviour
+   General Store – site behaviour
    ========================================================= */
 
 /* ---------- Events (from the November poster) ----------
@@ -123,7 +123,7 @@ document.querySelectorAll("main section[id]").forEach(s => observer.observe(s));
 const form = document.getElementById("contact-form");
 const rules = {
   name: v => v.trim().length >= 2,
-  phone: v => /^[+\d][\d\s()-]{8,}$/.test(v.trim()),
+  email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) && v.trim().length <= 254,
   query: v => v.trim().length >= 5,
 };
 function check(field) {
@@ -132,15 +132,18 @@ function check(field) {
   form.querySelector(`.err[data-for="${field.name}"]`).classList.toggle("show", !ok);
   return ok;
 }
+const honeypot = document.getElementById("website");
 form.addEventListener("submit", e => {
   e.preventDefault();
-  const fields = [...form.querySelectorAll("input, textarea")];
+  // a bot filled the hidden spam-trap field: act as if sent, do nothing
+  if (honeypot && honeypot.value) { form.reset(); document.getElementById("form-success").hidden = false; return; }
+  const fields = [...form.querySelectorAll("[required]")];
   const allOk = fields.map(check).every(Boolean);
   if (!allOk) { form.querySelector(".invalid").focus(); return; }
   document.getElementById("form-success").hidden = false;
   form.reset();
 });
-form.querySelectorAll("input, textarea").forEach(f =>
+form.querySelectorAll("[required]").forEach(f =>
   f.addEventListener("blur", () => { if (f.value) check(f); })
 );
 
@@ -150,7 +153,7 @@ form.querySelectorAll("input, textarea").forEach(f =>
    is sticky, so it keeps its strip of the drawing as you scroll.          */
 const header = document.querySelector(".site-header");
 const hero = document.querySelector(".hero");
-const ART = { w: 1200, h: 943, focusY: 0.45 }; // assets/front-drawing.png
+const ART = { w: 2400, h: 1887, focusY: 0.45 }; // assets/front-drawing.png
 function syncArt() {
   const W = hero.clientWidth;
   const Hh = header.offsetHeight;
@@ -198,28 +201,3 @@ header.addEventListener("focusin", () => header.classList.remove("is-hidden"));
 
 /* ---------- Footer year ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();
-
-/* ---------- Mock-up design options (remove before launch) ---------- */
-const root = document.documentElement;
-const optsBtn = document.getElementById("opts-toggle");
-const opts = document.getElementById("opts");
-optsBtn.addEventListener("click", () => {
-  opts.hidden = !opts.hidden;
-  optsBtn.setAttribute("aria-expanded", !opts.hidden);
-});
-function setOpt(key, value) {
-  root.dataset[key] = value;
-  try { localStorage.setItem("gs-" + key, value); } catch (e) {}
-}
-["scheme", "font"].forEach(key => {
-  let saved = null;
-  try { saved = localStorage.getItem("gs-" + key); } catch (e) {}
-  if (saved) {
-    root.dataset[key] = saved;
-    const input = opts.querySelector(`input[name="${key}"][value="${saved}"]`);
-    if (input) input.checked = true;
-  }
-  opts.querySelectorAll(`input[name="${key}"]`).forEach(input =>
-    input.addEventListener("change", () => setOpt(key, input.value))
-  );
-});

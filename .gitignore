@@ -3,3 +3,6 @@
 # Local preview settings (machine-specific)
 .claude/
 .DS_Store
+
+# Original logo source – kept locally, not published
+Logo.jpeg

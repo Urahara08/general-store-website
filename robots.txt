@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://urahara08.github.io/general-store-website/sitemap.xml

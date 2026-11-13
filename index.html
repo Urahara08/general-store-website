@@ -1,14 +1,82 @@
 <!DOCTYPE html>
-<html lang="en-GB" data-scheme="logo" data-font="classic">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>General Store · Winchester</title>
-  <meta name="description" content="General Store – a little café on The Square, Winchester. Coffee, cakes, live music and good company.">
+
+  <!-- Security: only load code, styles, fonts and images from this site and Google Fonts -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- SEO -->
+  <title>General Store | Café on The Square, Winchester</title>
+  <meta name="description" content="Independent café at 30–31 The Square, Winchester. Proper coffee, homemade cakes, toasties and jacket potatoes by day; wine, charcuterie boards and live music by night.">
+  <link rel="canonical" href="https://urahara08.github.io/general-store-website/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#2b3238">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Link previews (WhatsApp, Facebook, iMessage, X, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="General Store Winchester">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="General Store | Café on The Square, Winchester">
+  <meta property="og:description" content="Proper coffee, homemade cakes and live music at 30–31 The Square, Winchester.">
+  <meta property="og:url" content="https://urahara08.github.io/general-store-website/">
+  <meta property="og:image" content="https://urahara08.github.io/general-store-website/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="General Store logo over a line drawing of the café's shopfront">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Icons -->
+  <link rel="icon" href="assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts: only the weights the site uses -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Fredoka:wght@500;600&family=Nunito:wght@400;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/front-drawing.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured data: tells Google this is a café, where it is, and what's on -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CafeOrCoffeeShop",
+        "@id": "https://urahara08.github.io/general-store-website/#cafe",
+        "name": "General Store",
+        "url": "https://urahara08.github.io/general-store-website/",
+        "logo": "https://urahara08.github.io/general-store-website/assets/icon-512.png",
+        "image": "https://urahara08.github.io/general-store-website/assets/og-image.jpg",
+        "description": "Independent café on The Square in Winchester serving coffee, hot chocolates, homemade cakes, toasties and jacket potatoes by day, and wine, cocktails, charcuterie boards and live music by night.",
+        "email": "events@thegeneralstorewinchester.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "30–31 The Square",
+          "addressLocality": "Winchester",
+          "addressRegion": "Hampshire",
+          "postalCode": "SO23 9EX",
+          "addressCountry": "GB"
+        },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=General+Store+30-31+The+Square+Winchester+SO23+9EX",
+        "servesCuisine": ["Coffee", "Cakes", "Light bites"],
+        "sameAs": ["https://www.instagram.com/generalstore_winchester/"]
+      },
+      { "@type": "Event", "name": "Winchester Fireworks Night at General Store", "startDate": "2026-11-07", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "location": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "organizer": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "image": "https://urahara08.github.io/general-store-website/assets/og-image.jpg", "description": "Warming drinks and treats: special hot chocolates, mulled wine, cakes and jacket potatoes, then wine and charcuterie after the fireworks." },
+      { "@type": "Event", "name": "Live music with Maddy Robinson", "startDate": "2026-11-13T19:00:00+00:00", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "location": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "organizer": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "image": "https://urahara08.github.io/general-store-website/assets/og-image.jpg", "performer": { "@type": "Person", "name": "Maddy Robinson" }, "description": "Emerging vocalist blending soulful R&B with contemporary pop and a glimpse of country." },
+      { "@type": "Event", "name": "An evening of acoustic folk guitar with Henry Ayling", "startDate": "2026-11-14T19:00:00+00:00", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "location": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "organizer": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "image": "https://urahara08.github.io/general-store-website/assets/og-image.jpg", "performer": { "@type": "Person", "name": "Henry Ayling" }, "description": "Fingerstyle acoustic guitarist and singer-songwriter playing traditional folk songs, covers and originals." },
+      { "@type": "Event", "name": "Winchester Light Switch On & Jazz Evening", "startDate": "2026-11-19", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "location": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "organizer": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "image": "https://urahara08.github.io/general-store-website/assets/og-image.jpg", "performer": { "@type": "Person", "name": "Yolanda Parkes" }, "description": "Jacket potatoes, toasties, mulled wine and hot chocolates all day, then charcuterie, wine and live saxophone after the lights switch on." },
+      { "@type": "Event", "name": "Opening of the Christmas Market & Jazz", "startDate": "2026-11-20T18:30:00+00:00", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "location": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "organizer": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "image": "https://urahara08.github.io/general-store-website/assets/og-image.jpg", "performer": { "@type": "Person", "name": "Yolanda Parkes" }, "description": "Mince pies and mulled wine all day, with live jazz saxophone, sharing boards and nibbles from 6:30pm." },
+      { "@type": "Event", "name": "Jazz, festive cocktails, charcuterie boards & nibbles", "startDate": "2026-11-27T18:30:00+00:00", "endDate": "2026-11-28T23:00:00+00:00", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "location": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "organizer": { "@id": "https://urahara08.github.io/general-store-website/#cafe" }, "image": "https://urahara08.github.io/general-store-website/assets/og-image.jpg", "performer": { "@type": "Person", "name": "Yolanda Parkes" }, "description": "Smooth jazz saxophone with festive cocktails, sharing boards and nibbles from 6:30pm on both evenings." }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -16,7 +84,10 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="#top" class="logo-link" aria-label="General Store – back to top">
-        <img src="assets/logo.png" alt="General Store logo" class="logo">
+        <picture>
+          <source srcset="assets/logo-168.webp" type="image/webp">
+          <img src="assets/logo-168.png" alt="General Store" class="logo" width="168" height="168" decoding="async">
+        </picture>
       </a>
 
       <nav class="site-nav" aria-label="Main">
@@ -34,10 +105,10 @@
   <main id="top">
 
     <!-- ============ HERO: shopfront drawing with intro in front ============ -->
-    <section class="hero" aria-label="Welcome – drawing of the General Store shopfront">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
-        <p class="eyebrow">On The Square, Winchester</p>
-        <h1>Good coffee, homemade cakes &amp; a warm welcome.</h1>
+        <p class="eyebrow">General Store · The Square, Winchester</p>
+        <h1 id="hero-title">Good coffee, homemade cakes &amp; a warm welcome.</h1>
         <p class="lede">A little café with a big striped awning. Pop in for a flat white, stay for the live music.</p>
         <a href="#whats-on" class="btn btn--light">See what's on</a>
       </div>
@@ -61,12 +132,12 @@
         <!-- Instagram mock-up (to be replaced with a live feed later) -->
         <div class="insta" aria-label="Instagram feed preview">
           <div class="insta-head">
-            <img src="assets/logo.png" alt="" class="insta-avatar">
+            <img src="assets/logo-168.png" alt="" class="insta-avatar" width="168" height="168" loading="lazy" decoding="async">
             <div>
               <strong>generalstore_winchester</strong>
               <span>General Store · Café</span>
             </div>
-            <a class="insta-follow" href="https://www.instagram.com/generalstore_winchester/" target="_blank" rel="noopener">Follow</a>
+            <a class="insta-follow" href="https://www.instagram.com/generalstore_winchester/" target="_blank" rel="noopener noreferrer">Follow</a>
           </div>
           <div class="insta-grid">
             <div class="tile t1"><span>Flat white Friday</span></div>
@@ -95,6 +166,7 @@
           </div>
         </div>
         <ol class="events" id="events"></ol>
+        <noscript><p class="events-foot">Turn on JavaScript to see our events, or follow <a href="https://www.instagram.com/generalstore_winchester/" rel="noopener noreferrer">@generalstore_winchester</a> on Instagram.</p></noscript>
         <p class="events-foot">Questions about an event? Email <a href="mailto:events@thegeneralstorewinchester.com">events@thegeneralstorewinchester.com</a></p>
       </div>
     </section>
@@ -106,25 +178,31 @@
           <h2>Contact us</h2>
           <p>Booking a table, asking about an event or just saying hello? Drop us a message and we'll get back to you.</p>
           <dl class="details">
-            <dt>Find us</dt><dd>30–31 The Square<br>Winchester SO23 9EX</dd>
+            <dt>Find us</dt><dd><address>30–31 The Square<br>Winchester SO23 9EX</address><a href="https://www.google.com/maps/search/?api=1&amp;query=General+Store+30-31+The+Square+Winchester+SO23+9EX" target="_blank" rel="noopener noreferrer">Get directions</a></dd>
             <dt>Email</dt><dd><a href="mailto:events@thegeneralstorewinchester.com">events@thegeneralstorewinchester.com</a></dd>
-            <dt>Instagram</dt><dd><a href="https://www.instagram.com/generalstore_winchester/" target="_blank" rel="noopener">@generalstore_winchester</a></dd>
+            <dt>Instagram</dt><dd><a href="https://www.instagram.com/generalstore_winchester/" target="_blank" rel="noopener noreferrer">@generalstore_winchester</a></dd>
             <dt>Opening hours</dt><dd class="tbc">To be confirmed</dd>
           </dl>
         </div>
 
-        <form class="contact-form" id="contact-form" novalidate>
+        <form class="contact-form" id="contact-form" novalidate autocomplete="on">
           <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required>
+          <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required>
           <small class="err" data-for="name">Please tell us your name.</small>
 
-          <label for="phone">Phone number</label>
-          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-          <small class="err" data-for="phone">Please enter a valid phone number.</small>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required>
+          <small class="err" data-for="email">Please enter a valid email address, like name@example.com.</small>
 
           <label for="query">Your query</label>
-          <textarea id="query" name="query" rows="5" required></textarea>
+          <textarea id="query" name="query" rows="5" maxlength="2000" required></textarea>
           <small class="err" data-for="query">Please let us know how we can help.</small>
+
+          <!-- spam trap: hidden from people, bots fill it in -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Leave this empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
 
           <button type="submit" class="btn">Send message</button>
           <p class="form-success" id="form-success" hidden>Thank you! We'll be in touch soon. <em>(Mock-up: nothing has been sent.)</em></p>
@@ -135,29 +213,11 @@
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <img src="assets/logo.png" alt="General Store" class="footer-logo">
+      <img src="assets/logo-168.png" alt="General Store logo" class="footer-logo" width="168" height="168" loading="lazy" decoding="async">
       <p>30–31 The Square, Winchester SO23 9EX</p>
       <p>&copy; <span id="year"></span> General Store</p>
     </div>
   </footer>
-
-  <!-- ============ MOCK-UP OPTIONS (remove before launch) ============ -->
-  <button class="opts-toggle" id="opts-toggle" aria-expanded="false" aria-controls="opts">Design options</button>
-  <aside class="opts" id="opts" hidden>
-    <h3>Mock-up options</h3>
-    <fieldset>
-      <legend>Colours</legend>
-      <label><input type="radio" name="scheme" value="logo" checked> Logo – charcoal &amp; white</label>
-      <label><input type="radio" name="scheme" value="awning"> Charcoal + awning navy</label>
-      <label><input type="radio" name="scheme" value="autumn"> Charcoal + warm terracotta</label>
-    </fieldset>
-    <fieldset>
-      <legend>Font</legend>
-      <label><input type="radio" name="font" value="classic" checked> Classic – matches logo</label>
-      <label><input type="radio" name="font" value="cute"> Cute – soft &amp; rounded</label>
-      <label><input type="radio" name="font" value="quaint"> Quaint – vintage serif</label>
-    </fieldset>
-  </aside>
 
   <script src="script.js"></script>
 </body>
