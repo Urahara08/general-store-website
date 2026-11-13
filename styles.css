@@ -24,8 +24,6 @@
 @supports (background-image: image-set(url("x.webp") type("image/webp"))) {
   :root { --art-img: image-set(url("assets/front-drawing.webp") type("image/webp"), url("assets/front-drawing.png") type("image/png")); }
 }
-}
-}
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
